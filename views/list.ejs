@@ -1,0 +1,20 @@
+<%-include("header")-%>
+<%# we have write the javscript in ejs nside the scriplet  tag  %>
+    <div id="heading"><h1><%=heading%></h1> </div>
+   <div class="box">
+  <% item.forEach((element)=>{%>
+    <form action="/delete" method="post" >
+    <div class="item">
+       <input style="margin-left: 0px;" type="checkbox" name="checkbox"  value="<%=element._id%>"     onChange="this.form.submit()">
+      <p><b> <%=element.name%></b></p>
+    </div> 
+    </form>
+<%});%>
+    <form action="/" id="additem" method="post"> 
+    <input type="text"  placeholder="Additem" name="items" autocomplete="off">
+    <div>
+ <button type="submit" name="b" value=<%=heading %> >ADD</button>
+</div>
+</div>
+</form>
+<%-include("footer")%>
